@@ -8,7 +8,7 @@ export default function Home() {
       </div>
 
       <div className={styles.description}>
-        <p>Noise - An audio-visual pitch for a game about sound</p>
+        <p>The Myrtle Tree - A game about sound and reliving memories.</p>
         <p>By Rory Healy</p>
       </div>
     </main>
