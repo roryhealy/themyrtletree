@@ -4,20 +4,26 @@
 <head>
     <title>The Myrtle Tree</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <main class="wrapper">
-        <button class="centre">Click to begin</button>
-        <section class="controls">
-            <button id="play" onclick="playAudio()">Play</button>
-            <button id="pause" onclick="pauseAudio()">Pause</button>
-            <button id="stop" onclick="stopAudio()">Stop</button>
-            <audio id="backgroundAudio" src="public/audio/roli.webm" type="audio/webm">
+        <section class="centre">
+            <button id="button" onclick="begin()">Click to begin</button>
         </section>
         <footer>
-            <p>The Myrtle Tree - A game about sound and reliving memories.</p>
-            <p>By Rory Healy.</p>
+            <p id="title">The Myrtle Tree - A game about sound and reliving memories.</p>
+            <section class="controls">
+                <button id="playPause" class="controlButton" onclick="playPauseAudio()">
+                    <img class="controlImage" src="public/images/play.svg" alt="play"></img>
+                </button>
+                <button id="stop" class="controlButton" onclick="stopAudio()">
+                    <img class="controlImage" src="public/images/stop.svg" alt="stop"></img>
+                </button>
+                <audio id="backgroundAudio" src="public/audio/roli.weba" type="audio/weba">
+            </section>
+            <p id="credits">By Rory Healy.</p>
         </footer>
     </main>
     <script src="main.js"></script>
