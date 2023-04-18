@@ -1,6 +1,6 @@
 const backgroundAudio = document.getElementById("backgroundAudio");
-const playPauseButton = document.getElementById("playPause")
-let audioPlaying = false
+const playPauseButton = document.getElementById("playPause");
+let audioPlaying = false;
 
 const playPauseAudio = () => {
   if (audioPlaying === true) {
@@ -21,10 +21,18 @@ const stopAudio = () => {
 };
 
 const begin = () => {
-  // First pause the audio
-  playPauseAudio();
-
-  // Then fade everything out
-
-  // Finally, load in the new content
+  // Switch credits to media controls
+  document.querySelector('#begin').id = 'beginOff';
+  for (let element of document.querySelectorAll('.credits')) {
+    element.id = 'creditsOff';
+  }
+  setTimeout(() => {
+    for (let element of document.querySelectorAll('.credits')) {
+      element.style.display = 'none';
+    }
+    for (let element of document.querySelectorAll('.controlButtonOff')) {
+      element.className = 'controlButtonOn';
+    }
+  }, 1000);
+  playPauseAudio()
 };

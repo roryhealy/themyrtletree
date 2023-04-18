@@ -12,24 +12,27 @@
   --card-border-rgb: 131, 134, 135;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
 }
 
-.wrapper {
+main {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  margin: 10dvh 10dvw;
 }
 
 .centre {
-  margin: 25vh 0;
+  margin: 40vh 0;
 }
 
-.centre #button {
+.centre #begin {
   background: rgb(var(--card-rgb));
   border: 1px solid rgb(var(--card-border-rgb));
   border-radius: var(--border-radius);
@@ -37,10 +40,22 @@ body {
   transition: background 200ms, border 200ms;
 }
 
+.centre #beginOff {
+  visibility: none;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s linear;
+  background: rgb(var(--card-rgb));
+  border: 1px solid rgb(var(--card-border-rgb));
+  border-radius: var(--border-radius);
+  padding: 1rem 1.2rem;
+}
+
 footer {
-  display: grid;
+  position: fixed;
   width: 100%;
-  grid-template-columns: repeat(3, 1fr);
+  bottom: 5dvh;
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -48,11 +63,25 @@ footer section {
   justify-self: center;
 }
 
-footer #credits {
+#credits {
   text-align: right;
 }
 
-.controlButton {
+#creditsOff {
+  visibility: none;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s linear;
+}
+
+.controlButtonOff {
+  visibility: none;
+  opacity: 0;
+}
+
+.controlButtonOn {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
   border-radius: var(--border-radius);
   background: none;
   border: none;

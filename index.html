@@ -8,25 +8,24 @@
 </head>
 
 <body>
-    <main class="wrapper">
+    <main>
         <section class="centre">
-            <button id="button" onclick="begin()">Click to begin</button>
+            <button id="begin" onclick="begin()">Click to begin</button>
         </section>
-        <footer>
-            <p id="title">The Myrtle Tree - A game about sound and reliving memories.</p>
-            <section class="controls">
-                <button id="playPause" class="controlButton" onclick="playPauseAudio()">
-                    <img class="controlImage" src="public/images/play.svg" alt="play"></img>
-                </button>
-                <button id="stop" class="controlButton" onclick="stopAudio()">
-                    <img class="controlImage" src="public/images/stop.svg" alt="stop"></img>
-                </button>
-                <audio id="backgroundAudio" src="public/audio/roli.weba" type="audio/weba">
-            </section>
-            <p id="credits">By Rory Healy.</p>
-        </footer>
     </main>
-    <script src="main.js"></script>
+    <footer>
+        <p class="credits" id="title">The Myrtle Tree - A pitch for a game about sound and reliving memories.</p>
+        <section class="controls">
+            <button id="playPause" class="controlButtonOff" onclick="playPauseAudio()">
+                <img class="controlImage" src="public/images/play.svg" alt="play"></img>
+            </button>
+            <button id="stop" class="controlButtonOff" onclick="stopAudio()">
+                <img class="controlImage" src="public/images/stop.svg" alt="stop"></img>
+            </button>
+            <audio id="backgroundAudio" src="public/audio/roli.weba" type="audio/weba">
+        </section>
+        <p class="credits" id="credits">By Rory Healy.</p>
+    </footer>    <script src="main.js"></script>
 </body>
 
 </html>
