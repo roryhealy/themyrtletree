@@ -55,6 +55,7 @@ const begin = () => {
     document.querySelector('#beginOff').style.display = 'none';
     document.querySelector('.navigationOff').className = 'navigationOn';
     document.querySelector(`#${pages[currentPage]}`).style.display = 'block';
+    document.querySelector('.centre').style.marginTop = '22dvh';
     playPauseAudio()
   }, 6500);
 };
