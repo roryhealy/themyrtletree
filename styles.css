@@ -30,6 +30,8 @@ main {
 
 .centre {
   margin: 40vh 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .centre #begin {
@@ -43,11 +45,35 @@ main {
 .centre #beginOff {
   visibility: none;
   opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s linear;
+  transition: visibility 0.5s, opacity 0.5s linear;
   background: rgb(var(--card-rgb));
   border: 1px solid rgb(var(--card-border-rgb));
   border-radius: var(--border-radius);
   padding: 1rem 1.2rem;
+}
+
+.headphonesOff {
+  visibility: visible;
+  opacity: 0;
+  transition: display 2s, opacity 2s linear;
+  display: inherit;
+  flex-direction: inherit;
+  align-items: center;
+}
+
+.headphonesOn {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
+  display: inherit;
+  flex-direction: inherit;
+  align-items: center;
+}
+
+#headphonesImage {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 10px;
 }
 
 footer {

@@ -27,12 +27,22 @@ const begin = () => {
     element.id = 'creditsOff';
   }
   setTimeout(() => {
+    for (let element of document.querySelectorAll('.headphonesOff')) {
+      element.className = 'headphonesOn';
+    }
+  }, 500);
+  setTimeout(() => {
+    for (let element of document.querySelectorAll('.headphonesOn')) {
+      element.className = 'headphonesOff';
+    }
+  }, 4500);
+  setTimeout(() => {
     for (let element of document.querySelectorAll('.credits')) {
       element.style.display = 'none';
     }
     for (let element of document.querySelectorAll('.controlButtonOff')) {
       element.className = 'controlButtonOn';
     }
-  }, 1000);
-  playPauseAudio()
+    playPauseAudio()
+  }, 7000);
 };
