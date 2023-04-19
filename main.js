@@ -2,7 +2,11 @@ const backgroundAudio = document.getElementById("backgroundAudio");
 const playPauseButton = document.getElementById("playPause");
 let audioPlaying = false;
 let currentPage = 0;
-document.getElementById('arrowLeft').style.opacity = 0;
+const pages = ["overview", "objectives", "howtoplay", "audiovisualstyles", "nameinspiration", "references"]
+const arrowLeft = document.querySelector('#arrowLeft')
+const arrowRight = document.querySelector('#arrowRight')
+arrowLeft.style.opacity = 0;
+arrowLeft.style.cursor = 'auto';
 
 const playPauseAudio = () => {
   if (audioPlaying === true) {
@@ -50,20 +54,37 @@ const begin = () => {
     }
     document.querySelector('#beginOff').style.display = 'none';
     document.querySelector('.navigationOff').className = 'navigationOn';
+    document.querySelector(`#${pages[currentPage]}`).style.display = 'block';
     playPauseAudio()
   }, 6500);
 };
 
 const previousPage = () => {
-  currentPage -= 1;
   if (currentPage === 0) {
-    document.getElementById('arrowLeft').style.opacity = 0;
+    return;
+  } else if (currentPage === 1) {
+    arrowLeft.style.cursor = 'auto';
+    arrowLeft.style.opacity = 0;
+  } else if (currentPage <= 5) {
+    arrowRight.style.opacity = 1;
+    arrowRight.style.cursor = 'pointer';
   }
+  document.querySelector(`#${pages[currentPage]}`).style.display = 'none';
+  currentPage -= 1;
+  document.querySelector(`#${pages[currentPage]}`).style.display = 'block';
 }
 
 const nextPage = () => {
-  currentPage += 1;
-  if (currentPage === 1) {
-    document.getElementById('arrowLeft').style.opacity = 1;
+  if (currentPage === 5) {
+    return;
+  } else if (currentPage === 4) {
+    arrowRight.style.opacity = 0;
+    arrowRight.style.cursor = 'auto';
+  } else if (currentPage >= 0) {
+    arrowLeft.style.opacity = 1;
+    arrowLeft.style.cursor = 'pointer';
   }
+  document.querySelector(`#${pages[currentPage]}`).style.display = 'none';
+  currentPage += 1;
+  document.querySelector(`#${pages[currentPage]}`).style.display = 'block';
 }
