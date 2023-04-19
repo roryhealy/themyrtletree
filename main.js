@@ -1,6 +1,8 @@
 const backgroundAudio = document.getElementById("backgroundAudio");
 const playPauseButton = document.getElementById("playPause");
 let audioPlaying = false;
+let currentPage = 0;
+document.getElementById('arrowLeft').style.opacity = 0;
 
 const playPauseAudio = () => {
   if (audioPlaying === true) {
@@ -47,6 +49,21 @@ const begin = () => {
       element.style.display = 'none';
     }
     document.querySelector('#beginOff').style.display = 'none';
+    document.querySelector('.navigationOff').className = 'navigationOn';
     playPauseAudio()
   }, 6500);
 };
+
+const previousPage = () => {
+  currentPage -= 1;
+  if (currentPage === 0) {
+    document.getElementById('arrowLeft').style.opacity = 0;
+  }
+}
+
+const nextPage = () => {
+  currentPage += 1;
+  if (currentPage === 1) {
+    document.getElementById('arrowLeft').style.opacity = 1;
+  }
+}
