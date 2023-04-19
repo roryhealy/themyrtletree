@@ -43,6 +43,10 @@ const begin = () => {
     for (let element of document.querySelectorAll('.controlButtonOff')) {
       element.className = 'controlButtonOn';
     }
+    for (let element of document.querySelectorAll('.headphonesOff')) {
+      element.style.display = 'none';
+    }
+    document.querySelector('#beginOff').style.display = 'none';
     playPauseAudio()
-  }, 7000);
+  }, 6500);
 };
