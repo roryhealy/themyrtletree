@@ -5,8 +5,8 @@ export default function Headphones() {
   return (
     <div>
       <Image
-        src="images/headphones.svg"
-        alt="Headphones image"
+        src='images/white/headphones.svg'
+        alt='Headphones image'
         width={100}
         height={100}
       />
