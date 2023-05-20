@@ -1,6 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
+import nextImage from '../public/images/white/next.svg';
+import previousImage from '../public/images/white/previous.svg';
+import playImage from '../public/images/white/play.svg';
+import pauseImage from '../public/images/white/pause.svg';
+import stopImage from '../public/images/white/stop.svg';
+
 export default function AudioPlayer() {
   const tracks = ['roli', 'lumatome'];
   const [trackIndex, setTrackIndex] = useState(0);
@@ -66,24 +72,19 @@ export default function AudioPlayer() {
     <div className='grid grid-rows-2 justify-items-center gap-y-5'>
       <div className='grid grid-cols-4 gap-x-5'>
         <button className={buttonStyle} onClick={previousTrack}>
-          <Image src='images/white/previous.svg' alt='Previous song' width={50} height={50} />
+          <Image src={previousImage} alt='Previous song' />
         </button>
 
         <button className={buttonStyle} onClick={togglePlaying}>
-          <Image
-            src={isPlaying ? 'images/white/pause.svg' : 'images/white/play.svg'}
-            alt={isPlaying ? 'Pause music' : 'Play music'}
-            width={50}
-            height={50}
-          />
+          <Image src={isPlaying ? pauseImage : playImage} alt={isPlaying ? 'Pause music' : 'Play music'} />
         </button>
 
         <button className={buttonStyle} onClick={stopPlaying}>
-          <Image src='images/white/stop.svg' alt='Stop audio' width={50} height={50} />
+          <Image src={stopImage} alt='Stop audio' />
         </button>
 
         <button className={buttonStyle} onClick={nextTrack}>
-          <Image src='images/white/next.svg' alt='Next song' width={50} height={50} />
+          <Image src={nextImage} alt='Next song' />
         </button>
       </div>
 

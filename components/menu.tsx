@@ -1,10 +1,13 @@
 'use client';
 
-import React from 'react';
-
+import React, { useState } from 'react';
 import Image from 'next/image';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { useState } from 'react';
+
+import menuImage from '../public/images/white/menu.svg';
+import sunImage from '../public/images/white/sun.svg';
+import moonImage from '../public/images/black/moon.svg';
+import githubImage from '../public/images/white/github-logo.svg';
 
 enum Mode {
   Light,
@@ -13,20 +16,23 @@ enum Mode {
 
 interface DisplayMode {
   current: Mode;
+  icon: any;
   text: string;
-  icon: string;
+  alt: string;
 }
 
 const darkDisplayMode: DisplayMode = {
   current: Mode.Dark,
   text: 'Switch to light mode',
-  icon: 'images/white/sun.svg'
+  icon: sunImage,
+  alt: 'Sun icon'
 };
 
 const lightDisplayMode: DisplayMode = {
   current: Mode.Light,
   text: 'Switch to dark mode',
-  icon: 'images/black/moon.svg'
+  icon: moonImage,
+  alt: 'Moon icon'
 };
 
 export default function Menu() {
@@ -46,13 +52,7 @@ export default function Menu() {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <Image
-          src='images/white/menu.svg'
-          alt='Menu'
-          width={40}
-          height={40}
-          className='opacity-25 hover:opacity-75 ease-linear transition-opacity'
-        />
+        <Image src={menuImage} alt='Menu' className='opacity-25 hover:opacity-75 ease-linear transition-opacity' />
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
@@ -62,13 +62,13 @@ export default function Menu() {
             onClick={modeSwitch}
           >
             <p className='text-lg text-white'>{displayMode.text}</p>
-            <Image src={displayMode.icon} height={20} width={20} alt='Sun' />
+            <Image src={displayMode.icon} alt={displayMode.alt} />
           </DropdownMenu.Item>
 
           <DropdownMenu.Item className='outline-none px-2 py-1 bg-neutral-900 cursor-pointer hover:bg-neutral-800'>
             <a href='https://github.com/roryhealy/themyrtletree' className='flex justify-between'>
               <p className='text-lg text-white'>View source on GitHub</p>
-              <Image src='images/white/github-logo.svg' height={20} width={20} alt='GitHub logo' />
+              <Image src={githubImage} alt='GitHub logo' />
             </a>
           </DropdownMenu.Item>
 

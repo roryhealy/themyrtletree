@@ -41,7 +41,7 @@ export default function Main() {
         </div>
       </section>
 
-      <div className={`transition-all duration-[2500ms] ${showStartButton ? 'opacity-100' : 'opacity-0'}`}>
+      <div>
         <Footer showControls={showControls} />
       </div>
     </>
