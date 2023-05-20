@@ -55,11 +55,6 @@ export default function AudioPlayer() {
     }
   }, [isPlaying, audioRef]);
 
-  // Play music when the page loads
-  useEffect(() => {
-    setIsPlaying(true);
-  }, []);
-
   // Play the track when the track is changed
   useEffect(() => {
     setIsPlaying(true);

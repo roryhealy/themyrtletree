@@ -56,7 +56,7 @@ export default function Menu() {
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className='p-1 mr-4 bg-neutral-950 w-60 -mt-6'>
+        <DropdownMenu.Content className='p-1 mr-4 bg-neutral-950 w-60 mt-1'>
           <DropdownMenu.Item
             className='flex outline-none justify-between px-2 py-1 bg-neutral-900 cursor-pointer hover:bg-neutral-800'
             onClick={modeSwitch}

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-import Footer from '@/components/footer';
+import AudioPlayer from '@/components/audioplayer';
 import Panel from '@/components/panel';
 import BeginButton from '@/components/beginbutton';
 import Headphones from '@/components/headphones';
@@ -26,24 +26,25 @@ export default function Main() {
   };
 
   return (
-    <>
-      <section className='absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2'>
-        <div hidden={!showStartButton}>
-          <BeginButton onclick={begin} toShow={showStartButton} />
-        </div>
-
-        <div hidden={!showHeadphones}>
-          <Headphones toShow={showHeadphones} />
-        </div>
-
-        <div hidden={!showPanels}>
-          <Panel toShow={showPanels} />
+    <div className='flex flex-col items-center w-full'>
+      <section className='flex flex-1 justify-center items-center w-3/5'>
+        <BeginButton onclick={begin} hidden={!showStartButton} />
+        <Headphones hidden={!showHeadphones} />
+        <div className='h-full'>
+          <Panel hidden={!showPanels} />
         </div>
       </section>
 
-      <div>
-        <Footer showControls={showControls} />
-      </div>
-    </>
+      {showControls ? (
+        <footer className='flex justify-center h-24'>
+          <AudioPlayer />
+        </footer>
+      ) : (
+        <footer className='flex justify-around items-center h-24 w-full'>
+          <p>The Myrtle Tree - A pitch for a game about sound and reliving memories.</p>
+          <p>By Rory Healy.</p>
+        </footer>
+      )}
+    </div>
   );
 }
