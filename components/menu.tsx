@@ -12,22 +12,22 @@ enum Mode {
 }
 
 interface DisplayMode {
-  current: Mode,
-  text: string,
-  icon: string
+  current: Mode;
+  text: string;
+  icon: string;
 }
 
 const darkDisplayMode: DisplayMode = {
   current: Mode.Dark,
   text: 'Switch to light mode',
   icon: 'images/white/sun.svg'
-}
+};
 
 const lightDisplayMode: DisplayMode = {
   current: Mode.Light,
   text: 'Switch to dark mode',
   icon: 'images/black/moon.svg'
-}
+};
 
 export default function Menu() {
   const [displayMode, setDisplayMode] = useState(darkDisplayMode);
@@ -56,8 +56,11 @@ export default function Menu() {
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className='p-1 mr-4 bg-neutral-950 w-60'>
-          <DropdownMenu.Item className='flex outline-none justify-between px-2 py-1 bg-neutral-900 cursor-pointer hover:bg-neutral-800' onClick={modeSwitch}>
+        <DropdownMenu.Content className='p-1 mr-4 bg-neutral-950 w-60 -mt-6'>
+          <DropdownMenu.Item
+            className='flex outline-none justify-between px-2 py-1 bg-neutral-900 cursor-pointer hover:bg-neutral-800'
+            onClick={modeSwitch}
+          >
             <p className='text-lg text-white'>{displayMode.text}</p>
             <Image src={displayMode.icon} height={20} width={20} alt='Sun' />
           </DropdownMenu.Item>

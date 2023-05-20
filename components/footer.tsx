@@ -1,7 +1,33 @@
 import React from 'react';
-import Menu from '@/components/menu';
+import Image from 'next/image';
 
-export default function Footer() {
+import AudioPlayer from '@/components/audioplayer';
+
+export interface FooterProps {
+  showControls: boolean;
+}
+
+export default function Footer({ showControls }: FooterProps) {
+  const buttonStyle =
+    'border-0 rounded-lg px-20 py-1 active:bg-neutral-700 hover:bg-neutral-900 transition-colors ease-in duration-100';
+  if (showControls) {
+    return (
+      <footer className='fixed bottom-0 w-screen py-5 grid grid-rows-2 justify-items-center'>
+        <div className='grid grid-cols-2 gap-x-20 w-1/2 justify-items-center'>
+          <button className={buttonStyle}>
+            <Image src='images/white/arrow-left.svg' alt='Previous slide' width={50} height={50} />
+          </button>
+
+          <button className={buttonStyle}>
+            <Image src='images/white/arrow-right.svg' alt='Previous slide' width={50} height={50} />
+          </button>
+        </div>
+
+        <AudioPlayer />
+      </footer>
+    );
+  }
+
   return (
     <footer className='fixed bottom-0 w-screen h-24 py-2 flex justify-around'>
       <p>The Myrtle Tree - A pitch for a game about sound and reliving memories.</p>
