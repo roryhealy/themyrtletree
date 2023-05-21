@@ -24,8 +24,6 @@ export default function Main() {
 
   const [isFooterOpaque, setFooterOpaque] = useState(true);
 
-  const transitionTime = 2500;
-
   const begin = () => {
     // Fade out the start button and footer
     setStartButtonOpaque(false);
@@ -36,12 +34,12 @@ export default function Main() {
       setStartButtonHidden(true);
       setHeadphonesHidden(false);
       setHeadphonesOpaque(true);
-    }, transitionTime);
+    }, 2500);
 
     setTimeout(() => {
       // Fade out the headphones
       setHeadphonesOpaque(false);
-    }, 2 * transitionTime);
+    }, 5000);
 
     setTimeout(() => {
       // Hide the headphones, fade in the panels and controls in
@@ -50,40 +48,28 @@ export default function Main() {
       setPanelsOpaque(true);
       setControlsHidden(false);
       setControlsOpaque(true);
-    }, 3 * transitionTime);
+    }, 7500);
   };
 
   return (
     <div className='flex flex-col items-center w-full'>
       <section className='flex flex-1 justify-center items-center w-3/5'>
-        <div
-          className={`transition-all duration-[${transitionTime}ms] ${
-            isStartButtonOpaque ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
+        <div className={`transition-all duration-2500 ${isStartButtonOpaque ? 'opacity-100' : 'opacity-0'}`}>
           <BeginButton onclick={begin} hidden={isStartButtonHidden} />
         </div>
 
-        <div
-          className={`transition-all duration-[${transitionTime}ms] ${
-            isHeadphonesOpaque ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
+        <div className={`transition-all duration-2500 ${isHeadphonesOpaque ? 'opacity-100' : 'opacity-0'}`}>
           <Headphones hidden={isHeadphonesHidden} />
         </div>
 
-        <div
-          className={`h-full transition-all duration-[${transitionTime}ms] ${
-            isPanelsOpaque ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
+        <div className={`h-full transition-all duration-2500 ${isPanelsOpaque ? 'opacity-100' : 'opacity-0'}`}>
           <Panel hidden={isPanelsHidden} />
         </div>
       </section>
 
       {isControlsOpaque ? (
         <footer
-          className={`flex justify-center h-24 transition-all duration-[${transitionTime}ms] ${
+          className={`flex justify-center h-24 transition-all duration-2500 ${
             isPanelsOpaque ? 'opacity-100' : 'opacity-0'
           }`}
         >
@@ -91,7 +77,7 @@ export default function Main() {
         </footer>
       ) : (
         <footer
-          className={`flex justify-around items-center h-24 w-full transition-all duration-[${transitionTime}ms] ${
+          className={`flex justify-around items-center h-24 w-full transition-all duration-2500 ${
             isFooterOpaque ? 'opacity-100' : 'opacity-0'
           }`}
         >
