@@ -75,7 +75,7 @@ export default function Panel({ hidden }: PanelProps) {
             <a href='https://www.digitaltrends.com/gaming/ces-2021-haptic-feedback-vest-vr-virtual-reality-bhaptics/'>
               does exist
             </a>{' '}
-            today, it is only in its infancy, and isn&pos;t able to fully cover the body. Being able to fully isolate
+            today, it is only in its infancy, and isn&apos;t able to fully cover the body. Being able to fully isolate
             the player from the outside world would greatly enhance the degree to which the player is able to tune
             themselves into the soundscapes and environments.
           </p>
@@ -156,74 +156,6 @@ export default function Panel({ hidden }: PanelProps) {
       return (
         <>
           <h1 className='text-3xl'>References</h1>
-          <br />
-          <h3 className='text-xl'>Icons</h3>
-          <ul className='list-disc list-inside'>
-            <li>
-              Pause by Nawicon from{' '}
-              <a href='https://thenounproject.com/browse/icons/term/pause/' target='_blank' title='pause Icons'>
-                Noun Project
-              </a>
-            </li>
-            <li>
-              Mute by Nawicon from{' '}
-              <a href='https://thenounproject.com/browse/icons/term/mute/' target='_blank' title='Mute Icons'>
-                Noun Project
-              </a>
-            </li>
-            <li>
-              Volume up by Nawicon from{' '}
-              <a href='https://thenounproject.com/browse/icons/term/volume-up/' target='_blank' title='volume up Icons'>
-                Noun Project
-              </a>
-            </li>
-            <li>
-              Menu by Nawicon from{' '}
-              <a href='https://thenounproject.com/browse/icons/term/menu/' target='_blank' title='menu Icons'>
-                Noun Project
-              </a>
-            </li>
-            <li>
-              Square by Nawicon from{' '}
-              <a href='https://thenounproject.com/browse/icons/term/square/' target='_blank' title='square Icons'>
-                Noun Project
-              </a>
-            </li>
-            <li>
-              Triangle by Nawicon from{' '}
-              <a href='https://thenounproject.com/browse/icons/term/triangle/' target='_blank' title='triangle Icons'>
-                Noun Project
-              </a>
-            </li>
-            <li>
-              Next by Nawicon from{' '}
-              <a href='https://thenounproject.com/browse/icons/term/next/' target='_blank' title='Next Icons'>
-                Noun Project
-              </a>
-            </li>
-            <li>
-              Back by Nawicon from{' '}
-              <a href='https://thenounproject.com/browse/icons/term/back/' target='_blank' title='back Icons'>
-                Noun Project
-              </a>
-            </li>
-            <li>
-              Headphones by Maxim Kulikov from{' '}
-              <a
-                href='https://thenounproject.com/browse/icons/term/headphones/'
-                target='_blank'
-                title='Headphones Icons'
-              >
-                Noun Project
-              </a>
-            </li>
-            <li>
-              Arrow by iconcheese from{' '}
-              <a href='https://thenounproject.com/browse/icons/term/arrow/' target='_blank' title='Arrow Icons'>
-                Noun Project
-              </a>
-            </li>
-          </ul>
           <br />
           <h3 className='text-xl'>Articles</h3>
           <ul className='list-disc list-inside'>
