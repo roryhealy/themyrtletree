@@ -10,11 +10,7 @@ export interface HeadphonesProps {
 export default function Headphones({ hidden }: HeadphonesProps) {
   return (
     <div hidden={hidden}>
-      <div
-        className={`flex flex-col items-center transition-all duration-[2500ms] ${
-          hidden ? 'opacity-0' : 'opacity-100'
-        }`}
-      >
+      <div className='flex flex-col items-center'>
         <Image src={headphonesImage} alt='Headphones image' />
         <p>Headphones recommended</p>
       </div>

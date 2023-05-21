@@ -8,39 +8,93 @@ import BeginButton from '@/components/beginbutton';
 import Headphones from '@/components/headphones';
 
 export default function Main() {
-  const [showStartButton, setShowStartButton] = useState(true);
-  const [showHeadphones, setShowHeadphones] = useState(false);
-  const [showPanels, setShowPanels] = useState(false);
-  const [showControls, setShowControls] = useState(false);
+  // is___opaque is for controlling the opacity
+  // is___hidden is for controlling the hidden flag
+  const [isStartButtonOpaque, setStartButtonOpaque] = useState(true);
+  const [isStartButtonHidden, setStartButtonHidden] = useState(false);
+
+  const [isHeadphonesOpaque, setHeadphonesOpaque] = useState(false);
+  const [isHeadphonesHidden, setHeadphonesHidden] = useState(true);
+
+  const [isPanelsOpaque, setPanelsOpaque] = useState(false);
+  const [isPanelsHidden, setPanelsHidden] = useState(true);
+
+  const [isControlsOpaque, setControlsOpaque] = useState(false);
+  const [isControlsHidden, setControlsHidden] = useState(true);
+
+  const [isFooterOpaque, setFooterOpaque] = useState(true);
+
+  const transitionTime = 2500;
 
   const begin = () => {
-    setShowStartButton(false);
+    // Fade out the start button and footer
+    setStartButtonOpaque(false);
+    setFooterOpaque(false);
+
     setTimeout(() => {
-      setShowHeadphones(true);
-    }, 2500);
+      // Hide the start button, fade in the headphones
+      setStartButtonHidden(true);
+      setHeadphonesHidden(false);
+      setHeadphonesOpaque(true);
+    }, transitionTime);
+
     setTimeout(() => {
-      setShowHeadphones(false);
-      setShowPanels(true);
-      setShowControls(true);
-    }, 5000);
+      // Fade out the headphones
+      setHeadphonesOpaque(false);
+    }, 2 * transitionTime);
+
+    setTimeout(() => {
+      // Hide the headphones, fade in the panels and controls in
+      setHeadphonesHidden(true);
+      setPanelsHidden(false);
+      setPanelsOpaque(true);
+      setControlsHidden(false);
+      setControlsOpaque(true);
+    }, 3 * transitionTime);
   };
 
   return (
     <div className='flex flex-col items-center w-full'>
       <section className='flex flex-1 justify-center items-center w-3/5'>
-        <BeginButton onclick={begin} hidden={!showStartButton} />
-        <Headphones hidden={!showHeadphones} />
-        <div className='h-full'>
-          <Panel hidden={!showPanels} />
+        <div
+          className={`transition-all duration-[${transitionTime}ms] ${
+            isStartButtonOpaque ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <BeginButton onclick={begin} hidden={isStartButtonHidden} />
+        </div>
+
+        <div
+          className={`transition-all duration-[${transitionTime}ms] ${
+            isHeadphonesOpaque ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <Headphones hidden={isHeadphonesHidden} />
+        </div>
+
+        <div
+          className={`h-full transition-all duration-[${transitionTime}ms] ${
+            isPanelsOpaque ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <Panel hidden={isPanelsHidden} />
         </div>
       </section>
 
-      {showControls ? (
-        <footer className='flex justify-center h-24'>
-          <AudioPlayer />
+      {isControlsOpaque ? (
+        <footer
+          className={`flex justify-center h-24 transition-all duration-[${transitionTime}ms] ${
+            isPanelsOpaque ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <AudioPlayer hidden={isControlsHidden} />
         </footer>
       ) : (
-        <footer className='flex justify-around items-center h-24 w-full'>
+        <footer
+          className={`flex justify-around items-center h-24 w-full transition-all duration-[${transitionTime}ms] ${
+            isFooterOpaque ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
           <p>The Myrtle Tree - A pitch for a game about sound and reliving memories.</p>
           <p>By Rory Healy.</p>
         </footer>

@@ -7,7 +7,11 @@ import playImage from '../public/images/white/play.svg';
 import pauseImage from '../public/images/white/pause.svg';
 import stopImage from '../public/images/white/stop.svg';
 
-export default function AudioPlayer() {
+export interface AudioPlayerProps {
+  hidden: boolean;
+}
+
+export default function AudioPlayer({ hidden }: AudioPlayerProps) {
   const tracks = ['roli', 'lumatome'];
   const [trackIndex, setTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -64,7 +68,7 @@ export default function AudioPlayer() {
     'border-0 rounded-lg active:bg-neutral-700 hover:bg-neutral-900 transition-colors ease-in duration-100';
 
   return (
-    <div className='grid grid-rows-2 justify-items-center gap-y-5'>
+    <div className='grid grid-rows-2 justify-items-center gap-y-5' hidden={hidden}>
       <div className='grid grid-cols-4 gap-x-5'>
         <button className={buttonStyle} onClick={previousTrack}>
           <Image src={previousImage} alt='Previous song' />
