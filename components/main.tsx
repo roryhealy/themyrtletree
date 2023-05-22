@@ -78,7 +78,11 @@ export default function Main() {
           <Headphones hidden={isHeadphonesHidden} />
         </div>
 
-        <div className={`h-full transition-opacity duration-2500 ${isPanelsOpaque ? 'opacity-100' : 'opacity-0'}`}>
+        <div
+          className={`w-full h-full transition-opacity duration-2500 ${isPanelsOpaque ? 'opacity-100' : 'opacity-0'} ${
+            isPanelsHidden ? 'hidden' : 'visible'
+          }`}
+        >
           <Panel hidden={isPanelsHidden} />
         </div>
       </section>
