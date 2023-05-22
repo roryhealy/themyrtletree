@@ -190,6 +190,7 @@ export default function Panel({ hidden }: PanelProps) {
   };
 
   const previousPanel = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (index == 1) {
       setLeftArrowVisible(false);
     }
@@ -198,6 +199,7 @@ export default function Panel({ hidden }: PanelProps) {
   };
 
   const nextPanel = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (index == maxPanels - 2) {
       setRightArrowVisible(false);
     }
@@ -206,19 +208,19 @@ export default function Panel({ hidden }: PanelProps) {
   };
 
   const buttonStyle =
-    'border-0 rounded-lg px-20 py-1 active:bg-neutral-700 hover:bg-neutral-900 transition-colors ease-in duration-100';
+    'sm:border-0 border border-neutral-700 rounded-lg sm:w-fit w-auto sm:px-20 py-1 active:bg-neutral-700 hover:bg-neutral-900 transition-colors ease-in duration-100 grid justify-items-center';
 
   return (
     <div hidden={hidden} className='h-full'>
       <div className='flex flex-col items-center justify-between h-full'>
-        <div className='flex flex-1'>
+        <div className='flex flex-1 mb-4'>
           <div>{getInner()}</div>
         </div>
 
-        <div className='grid grid-cols-2 gap-x-10 mb-3'>
+        <div className='grid grid-cols-2 gap-x-10 w-full sm:w-auto'>
           {leftArrowVisible ? (
             <button className={buttonStyle} onClick={previousPanel}>
-              <Image src={leftArrowImage} alt='Previous slide' className='h-40 w-40 sm:w-auto sm:h-auto' />
+              <Image src={leftArrowImage} alt='Previous slide' />
             </button>
           ) : (
             <div className='px-20 py-1'></div>
@@ -226,7 +228,7 @@ export default function Panel({ hidden }: PanelProps) {
 
           {rightArrowVisible ? (
             <button className={buttonStyle} onClick={nextPanel}>
-              <Image src={rightArrowImage} alt='Next slide' className='h-20 w-20 sm:w-auto sm:h-auto' />
+              <Image src={rightArrowImage} alt='Next slide' />
             </button>
           ) : (
             <div className='px-20 py-1'></div>

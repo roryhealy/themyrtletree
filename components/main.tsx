@@ -34,12 +34,12 @@ export default function Main() {
       setStartButtonHidden(true);
       setHeadphonesHidden(false);
       setHeadphonesOpaque(true);
-    }, 2500);
+    }, 100);
 
     setTimeout(() => {
       // Fade out the headphones
       setHeadphonesOpaque(false);
-    }, 5000);
+    }, 200);
 
     setTimeout(() => {
       // Hide the headphones, fade in the panels and controls in
@@ -48,7 +48,7 @@ export default function Main() {
       setPanelsOpaque(true);
       setControlsHidden(false);
       setControlsOpaque(true);
-    }, 7500);
+    }, 300);
   };
 
   return (
