@@ -34,12 +34,12 @@ export default function Main() {
       setStartButtonHidden(true);
       setHeadphonesHidden(false);
       setHeadphonesOpaque(true);
-    }, 100);
+    }, 2500);
 
     setTimeout(() => {
       // Fade out the headphones
       setHeadphonesOpaque(false);
-    }, 200);
+    }, 5000);
 
     setTimeout(() => {
       // Hide the headphones, fade in the panels and controls in
@@ -48,12 +48,12 @@ export default function Main() {
       setPanelsOpaque(true);
       setControlsHidden(false);
       setControlsOpaque(true);
-    }, 300);
+    }, 7500);
   };
 
   return (
     <div className='flex flex-col items-center w-full h-full'>
-      <section className='flex sm:flex-1 flex-col sm:flex-row justify-center items-center sm:w-3/5 w-[90%]'>
+      <section className='flex flex-1 flex-col sm:flex-row justify-center items-center sm:w-3/5 w-[90%]'>
         <div hidden={isStartButtonHidden}>
           <div
             className={`sm:hidden flex flex-col items-center transition-all duration-2500 ${
@@ -74,7 +74,11 @@ export default function Main() {
           <BeginButton onclick={begin} hidden={isStartButtonHidden} />
         </div>
 
-        <div className={`transition-all duration-2500 ${isHeadphonesOpaque ? 'opacity-100' : 'opacity-0'}`}>
+        <div
+          className={`fixed w-full top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 transition-opacity duration-2500 ${
+            isHeadphonesOpaque ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
           <Headphones hidden={isHeadphonesHidden} />
         </div>
 
