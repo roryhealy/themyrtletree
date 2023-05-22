@@ -56,21 +56,17 @@ export default function Main() {
       <section className='flex flex-1 flex-col sm:flex-row justify-center items-center sm:w-3/5 w-[90%]'>
         <div hidden={isStartButtonHidden}>
           <div
-            className={`sm:hidden flex flex-col items-center transition-all duration-2500 ${
+            className={`sm:hidden transition-opacity duration-2500 mb-20 ${
               isStartButtonOpaque ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <h2 className='text-3xl'>The Myrtle Tree</h2>
+            <h2 className='text-3xl text-center'>The Myrtle Tree</h2>
             <br />
-            <p className='text-center'>A pitch for a game about sound and reliving memories.</p>
+            <p className='text-center'>A pitch for a game about reliving memories through sound.</p>
           </div>
         </div>
 
-        <div
-          className={`fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 transition-all duration-2500 ${
-            isStartButtonOpaque ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
+        <div className={`transition-opacity duration-2500 ${isStartButtonOpaque ? 'opacity-100' : 'opacity-0'}`}>
           <BeginButton onclick={begin} hidden={isStartButtonHidden} />
         </div>
 
@@ -82,7 +78,7 @@ export default function Main() {
           <Headphones hidden={isHeadphonesHidden} />
         </div>
 
-        <div className={`h-full transition-all duration-2500 ${isPanelsOpaque ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`h-full transition-opacity duration-2500 ${isPanelsOpaque ? 'opacity-100' : 'opacity-0'}`}>
           <Panel hidden={isPanelsHidden} />
         </div>
       </section>
@@ -97,7 +93,7 @@ export default function Main() {
         </footer>
       ) : (
         <footer
-          className={`sm:flex justify-around items-center h-24 w-full transition-all duration-2500 ${
+          className={`sm:flex fixed bottom-0 justify-around items-center h-24 w-full transition-opacity duration-2500 ${
             isFooterOpaque ? 'opacity-100' : 'opacity-0'
           }`}
         >
