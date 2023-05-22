@@ -79,8 +79,8 @@ export default function Main() {
         </div>
 
         <div
-          className={`w-full h-full transition-opacity duration-2500 ${isPanelsOpaque ? 'opacity-100' : 'opacity-0'} ${
-            isPanelsHidden ? 'hidden' : 'visible'
+          className={`sm:w-fit w-full h-full transition-all duration-2500 ${
+            isPanelsOpaque ? 'opacity-100' : 'opacity-0'
           }`}
         >
           <Panel hidden={isPanelsHidden} />
