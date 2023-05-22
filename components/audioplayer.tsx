@@ -89,7 +89,7 @@ export default function AudioPlayer({ hidden }: AudioPlayerProps) {
 
       <div>
         <p>Now playing: {tracks[trackIndex]}</p>
-        <audio src={`audio/${tracks[trackIndex]}.weba`} ref={audioRef} loop />
+        <audio src={`audio/${tracks[trackIndex]}.mp3`} ref={audioRef} loop />
       </div>
     </div>
   );
