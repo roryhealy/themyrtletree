@@ -68,7 +68,7 @@ export default function AudioPlayer({ hidden }: AudioPlayerProps) {
     'border-0 rounded-lg active:bg-neutral-700 hover:bg-neutral-900 transition-colors ease-in duration-100';
 
   return (
-    <div className='grid grid-rows-2 justify-items-center gap-y-5' hidden={hidden}>
+    <div className='grid grid-rows-2 justify-items-center items-baseline gap-y-5 my-2 sm:mb-0' hidden={hidden}>
       <div className='grid grid-cols-4 gap-x-5'>
         <button className={buttonStyle} onClick={previousTrack}>
           <Image src={previousImage} alt='Previous song' />

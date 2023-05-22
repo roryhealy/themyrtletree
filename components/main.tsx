@@ -52,9 +52,25 @@ export default function Main() {
   };
 
   return (
-    <div className='flex flex-col items-center w-full'>
-      <section className='flex flex-1 justify-center items-center w-3/5'>
-        <div className={`transition-all duration-2500 ${isStartButtonOpaque ? 'opacity-100' : 'opacity-0'}`}>
+    <div className='flex flex-col items-center w-full h-full'>
+      <section className='flex sm:flex-1 flex-col sm:flex-row justify-center items-center sm:w-3/5 w-[90%]'>
+        <div hidden={isStartButtonHidden}>
+          <div
+            className={`sm:hidden flex flex-col items-center transition-all duration-2500 ${
+              isStartButtonOpaque ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <h2 className='text-3xl'>The Myrtle Tree</h2>
+            <br />
+            <p className='text-center'>A pitch for a game about sound and reliving memories.</p>
+          </div>
+        </div>
+
+        <div
+          className={`fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 transition-all duration-2500 ${
+            isStartButtonOpaque ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
           <BeginButton onclick={begin} hidden={isStartButtonHidden} />
         </div>
 
@@ -69,7 +85,7 @@ export default function Main() {
 
       {isControlsOpaque ? (
         <footer
-          className={`flex justify-center h-24 transition-all duration-2500 ${
+          className={`sticky bottom-0 bg-black w-screen flex justify-center sm:h-24 transition-opacity duration-2500 ${
             isPanelsOpaque ? 'opacity-100' : 'opacity-0'
           }`}
         >
@@ -77,12 +93,14 @@ export default function Main() {
         </footer>
       ) : (
         <footer
-          className={`flex justify-around items-center h-24 w-full transition-all duration-2500 ${
+          className={`sm:flex justify-around items-center h-24 w-full transition-all duration-2500 ${
             isFooterOpaque ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <p>The Myrtle Tree - A pitch for a game about sound and reliving memories.</p>
-          <p>By Rory Healy.</p>
+          <p className='sm:opacity-100 opacity-0'>
+            The Myrtle Tree - A pitch for a game about sound and reliving memories.
+          </p>
+          <p className='text-center'>By Rory Healy.</p>
         </footer>
       )}
     </div>

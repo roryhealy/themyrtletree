@@ -218,7 +218,7 @@ export default function Panel({ hidden }: PanelProps) {
         <div className='grid grid-cols-2 gap-x-10 mb-3'>
           {leftArrowVisible ? (
             <button className={buttonStyle} onClick={previousPanel}>
-              <Image src={leftArrowImage} alt='Previous slide' />
+              <Image src={leftArrowImage} alt='Previous slide' className='h-40 w-40 sm:w-auto sm:h-auto' />
             </button>
           ) : (
             <div className='px-20 py-1'></div>
@@ -226,7 +226,7 @@ export default function Panel({ hidden }: PanelProps) {
 
           {rightArrowVisible ? (
             <button className={buttonStyle} onClick={nextPanel}>
-              <Image src={rightArrowImage} alt='Next slide' />
+              <Image src={rightArrowImage} alt='Next slide' className='h-20 w-20 sm:w-auto sm:h-auto' />
             </button>
           ) : (
             <div className='px-20 py-1'></div>
