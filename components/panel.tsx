@@ -154,42 +154,49 @@ export default function Panel({ hidden }: PanelProps) {
       );
     } else if (index == 5) {
       return (
-        <>
+        <div className='ml-2 sm:m-0'>
           <h1 className='text-3xl'>References</h1>
           <br />
           <h3 className='text-xl'>Articles</h3>
-          <ul className='list-disc list-inside'>
-            <li>
+          <ul className='list-disc sm:list-inside'>
+            <li className='break-words'>
               Reid, C. A., Green, J., Wildschut, T., & Sedikides, C. (2015). Scent-evoked nostalgia. <em>Memory, 23</em>
               (2), 157–166.{' '}
-              <a href='https://doi.org/10.1080/09658211.2013.876048'>https://doi.org/10.1080/09658211.2013.876048</a>
+              <a href='https://doi.org/10.1080/09658211.2013.876048' className='underline text-sky-300'>
+                https://doi.org/10.1080/09658211.2013.876048
+              </a>
             </li>
-            <li>
+            <li className='break-words'>
               Herz, R. S. (2016). The Role of Odor-Evoked Memory in Psychological and Physiological Health.{' '}
               <em>Brain Sciences, 6</em>(3), 22.{' '}
-              <a href='https://doi.org/10.3390/brainsci6030022'>https://doi.org/10.3390/brainsci6030022</a>
+              <a href='https://doi.org/10.3390/brainsci6030022' className='underline text-sky-300'>
+                https://doi.org/10.3390/brainsci6030022
+              </a>
             </li>
           </ul>
           <br />
           <h3 className='text-xl'>Music</h3>
-          <ul className='list-disc list-inside'>
-            <li>
+          <ul className='list-disc sm:list-inside'>
+            <li className='break-words'>
               Red Means Recording. (2018, April 2). <em>ROLI - Across the Equator</em> [Video]. YouTube.{' '}
-              <a href='https://www.youtube.com/watch?v=lx3QfNQhAkQ'>https://www.youtube.com/watch?v=lx3QfNQhAkQ</a>
+              <a href='https://www.youtube.com/watch?v=lx3QfNQhAkQ' className='underline text-sky-300'>
+                https://www.youtube.com/watch?v=lx3QfNQhAkQ
+              </a>
             </li>
-            <li>
-              <a href='https://www.tiktok.com/@lumatone/video/7222680257843760390'>
+            <li className='break-words'>
+              <a href='https://www.tiktok.com/@lumatone/video/7222680257843760390' className='underline text-sky-300'>
                 https://www.tiktok.com/@lumatone/video/7222680257843760390
               </a>
             </li>
           </ul>
-        </>
+        </div>
       );
     }
     return null;
   };
 
   const previousPanel = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (index == 1) {
       setLeftArrowVisible(false);
     }
@@ -198,6 +205,7 @@ export default function Panel({ hidden }: PanelProps) {
   };
 
   const nextPanel = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (index == maxPanels - 2) {
       setRightArrowVisible(false);
     }
@@ -206,16 +214,16 @@ export default function Panel({ hidden }: PanelProps) {
   };
 
   const buttonStyle =
-    'border-0 rounded-lg px-20 py-1 active:bg-neutral-700 hover:bg-neutral-900 transition-colors ease-in duration-100';
+    'sm:border-0 border border-neutral-700 rounded-lg sm:w-fit w-auto sm:px-20 py-1 active:bg-neutral-700 hover:bg-neutral-900 transition-colors ease-in duration-100 grid justify-items-center';
 
   return (
-    <div hidden={hidden} className='h-full'>
-      <div className='flex flex-col items-center justify-between h-full'>
-        <div className='flex flex-1'>
+    <div hidden={hidden} className='h-full w-full'>
+      <div className='flex flex-col items-center justify-between h-full w-full'>
+        <div className='mb-4 w-full'>
           <div>{getInner()}</div>
         </div>
 
-        <div className='grid grid-cols-2 gap-x-10 mb-3'>
+        <div className='grid grid-cols-2 gap-x-10 w-full sm:w-auto'>
           {leftArrowVisible ? (
             <button className={buttonStyle} onClick={previousPanel}>
               <Image src={leftArrowImage} alt='Previous slide' />

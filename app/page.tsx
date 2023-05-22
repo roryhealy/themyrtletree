@@ -5,8 +5,8 @@ import Main from '@/components/main';
 
 export default function Home() {
   return (
-    <main className='flex flex-col w-screen h-screen bg-black'>
-      <section className='flex justify-end p-4'>
+    <main className='flex flex-col w-screen sm:h-screen bg-black h-full min-h-screen'>
+      <section className='flex justify-end sm:p-4'>
         <Menu />
       </section>
 

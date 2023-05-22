@@ -52,11 +52,15 @@ export default function Menu() {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <Image src={menuImage} alt='Menu' className='opacity-25 hover:opacity-75 ease-linear transition-opacity' />
+        <Image
+          src={menuImage}
+          alt='Menu'
+          className='opacity-25 hover:opacity-75 ease-linear transition-opacity h-20 w-20 sm:w-auto sm:h-full'
+        />
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className='p-1 mr-4 bg-neutral-950 w-60 mt-1'>
+        <DropdownMenu.Content className='p-1 mr-4 bg-neutral-950 w-60 sm:mt-1 -mt-4'>
           <DropdownMenu.Item
             className='flex outline-none justify-between px-2 py-1 bg-neutral-900 cursor-pointer hover:bg-neutral-800'
             onClick={modeSwitch}
