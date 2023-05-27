@@ -20,7 +20,7 @@ import stopImage from '../public/images/white/stop.svg';
 
 export default function Home() {
   return (
-    <main className='flex flex-col w-screen sm:h-screen bg-[#1d1d1f] h-full min-h-screen'>
+    <main className='flex flex-col w-screen sm:h-screen bg-dark1 h-full min-h-screen'>
       <section className='flex justify-end sm:p-4'>
         <Menu />
       </section>

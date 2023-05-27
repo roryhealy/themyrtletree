@@ -104,7 +104,7 @@ export default function Main() {
 
       {isControlsOpaque ? (
         <footer
-          className={`sticky bottom-0 bg-black w-screen flex justify-center sm:h-24 transition-opacity duration-2500 ${
+          className={`sticky bottom-0 bg-dark1 w-screen flex justify-center sm:h-24 transition-opacity duration-2500 ${
             isPanelsOpaque ? 'opacity-100' : 'opacity-0'
           }`}
         >

@@ -60,23 +60,23 @@ export default function Menu() {
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className='p-1 mr-4 bg-neutral-950 w-60 sm:mt-1 -mt-4'>
-          <DropdownMenu.Item
+        <DropdownMenu.Content className='p-1 mr-4 bg-dark2 w-60 sm:mt-1 -mt-4'>
+          {/* <DropdownMenu.Item
             className='flex outline-none justify-between px-2 py-1 bg-neutral-900 cursor-pointer hover:bg-neutral-800'
             onClick={modeSwitch}
           >
             <p className='text-lg text-white'>{displayMode.text}</p>
             <Image src={displayMode.icon} alt={displayMode.alt} />
-          </DropdownMenu.Item>
+          </DropdownMenu.Item> */}
 
-          <DropdownMenu.Item className='outline-none px-2 py-1 bg-neutral-900 cursor-pointer hover:bg-neutral-800'>
+          <DropdownMenu.Item className='outline-none px-2 py-1 bg-dark3 cursor-pointer hover:bg-neutral-700'>
             <a href='https://github.com/roryhealy/themyrtletree' className='flex justify-between'>
               <p className='text-lg text-white'>View source on GitHub</p>
               <Image src={githubImage} alt='GitHub logo' />
             </a>
           </DropdownMenu.Item>
 
-          <DropdownMenu.Item className='flex outline-none justify-between px-2 py-1 mt-2 bg-neutral-900 cursor-default hover:bg-neutral-800'>
+          <DropdownMenu.Item className='flex outline-none justify-between px-2 py-1 mt-2 bg-dark3 cursor-default hover:bg-neutral-700'>
             <p className='text-lg text-white'>Made by Rory Healy</p>
           </DropdownMenu.Item>
         </DropdownMenu.Content>

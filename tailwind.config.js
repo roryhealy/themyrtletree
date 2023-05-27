@@ -9,6 +9,17 @@ module.exports = {
     extend: {
       transitionDuration: {
         '2500': '2500ms'
+      },
+      height: {
+        'lg': '500px'
+      },
+      width: {
+        'lg': '500px'
+      },
+      colors: {
+        'dark1': '#1d1d1f',
+        'dark2': '#232326',
+        'dark3': '#2a2a2d'
       }
     }
   }
