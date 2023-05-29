@@ -1,4 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+'use client';
+
+import React, { LegacyRef, useEffect, useRef } from 'react';
 
 import Circle from '@/components/circle';
 
@@ -8,11 +10,11 @@ export interface IntroProps {
 }
 
 export default function Intro({ hidden, isPlaying }: IntroProps) {
-  const audioRef = useRef(new Audio());
+  const audioRef: LegacyRef<HTMLAudioElement> = useRef(null);
 
   useEffect(() => {
     if (isPlaying == true) {
-      audioRef.current.play();
+      audioRef.current?.play();
     }
   }, [isPlaying]);
 
