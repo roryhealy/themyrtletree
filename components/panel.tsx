@@ -214,7 +214,7 @@ export default function Panel({ hidden }: PanelProps) {
   };
 
   const buttonStyle =
-    'sm:border-0 border border-neutral-700 rounded-lg sm:w-fit w-auto sm:px-20 py-1 active:bg-neutral-700 hover:bg-neutral-900 transition-colors ease-in duration-100 grid justify-items-center';
+    'sm:border-0 border border-neutral-700 rounded-lg sm:w-fit w-auto sm:px-20 py-1 active:bg-neutral-600 hover:bg-dark3 transition-colors ease-in duration-100 grid justify-items-center';
 
   return (
     <div hidden={hidden} className='h-full w-full'>

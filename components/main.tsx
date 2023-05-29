@@ -6,22 +6,21 @@ import AudioPlayer from '@/components/audioplayer';
 import Panel from '@/components/panel';
 import BeginButton from '@/components/beginbutton';
 import Headphones from '@/components/headphones';
+import Intro from '@/components/intro';
 
 export default function Main() {
-  // is___opaque is for controlling the opacity
-  // is___hidden is for controlling the hidden flag
+  // is_x_opaque is for controlling the opacity
+  // is_x_hidden is for controlling the hidden flag
   const [isStartButtonOpaque, setStartButtonOpaque] = useState(true);
   const [isStartButtonHidden, setStartButtonHidden] = useState(false);
-
   const [isHeadphonesOpaque, setHeadphonesOpaque] = useState(false);
   const [isHeadphonesHidden, setHeadphonesHidden] = useState(true);
-
+  const [isIntroOpaque, setIntroOpaque] = useState(false);
+  const [isIntroHidden, setIntroHidden] = useState(true);
   const [isPanelsOpaque, setPanelsOpaque] = useState(false);
   const [isPanelsHidden, setPanelsHidden] = useState(true);
-
   const [isControlsOpaque, setControlsOpaque] = useState(false);
   const [isControlsHidden, setControlsHidden] = useState(true);
-
   const [isFooterOpaque, setFooterOpaque] = useState(true);
 
   const begin = () => {
@@ -42,13 +41,25 @@ export default function Main() {
     }, 5000);
 
     setTimeout(() => {
-      // Hide the headphones, fade in the panels and controls in
+      // Hide the headphones, begin the intro
       setHeadphonesHidden(true);
+      setIntroHidden(false);
+      setIntroOpaque(true);
+    }, 7500);
+
+    setTimeout(() => {
+      // Fade out the intro
+      setIntroOpaque(false);
+    }, 156000);
+
+    setTimeout(() => {
+      // Hide the intro, fade in the panels and controls in
+      setIntroHidden(true);
       setPanelsHidden(false);
       setPanelsOpaque(true);
       setControlsHidden(false);
       setControlsOpaque(true);
-    }, 7500);
+    }, 159000);
   };
 
   return (
@@ -78,6 +89,10 @@ export default function Main() {
           <Headphones hidden={isHeadphonesHidden} />
         </div>
 
+        <div className={`transition-opacity duration-2500 ${isIntroOpaque ? 'opacity-100' : 'opacity-0'}`}>
+          <Intro hidden={isIntroHidden} isPlaying={isIntroOpaque} />
+        </div>
+
         <div
           className={`sm:w-fit w-full h-full transition-all duration-2500 ${
             isPanelsOpaque ? 'opacity-100' : 'opacity-0'
@@ -89,11 +104,11 @@ export default function Main() {
 
       {isControlsOpaque ? (
         <footer
-          className={`sticky bottom-0 bg-black w-screen flex justify-center sm:h-24 transition-opacity duration-2500 ${
+          className={`sticky bottom-0 bg-dark1 w-screen flex justify-center sm:h-24 transition-opacity duration-2500 ${
             isPanelsOpaque ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <AudioPlayer hidden={isControlsHidden} />
+          <AudioPlayer hidden={isControlsHidden} tracks={['roli.mp3', 'lumatome.mp3']} />
         </footer>
       ) : (
         <footer

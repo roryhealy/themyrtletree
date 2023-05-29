@@ -9,10 +9,10 @@ import stopImage from '../public/images/white/stop.svg';
 
 export interface AudioPlayerProps {
   hidden: boolean;
+  tracks: string[];
 }
 
-export default function AudioPlayer({ hidden }: AudioPlayerProps) {
-  const tracks = ['roli', 'lumatome'];
+export default function AudioPlayer({ hidden, tracks }: AudioPlayerProps) {
   const [trackIndex, setTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(new Audio());
@@ -64,8 +64,7 @@ export default function AudioPlayer({ hidden }: AudioPlayerProps) {
     setIsPlaying(true);
   }, [trackIndex]);
 
-  const buttonStyle =
-    'border-0 rounded-lg active:bg-neutral-700 hover:bg-neutral-900 transition-colors ease-in duration-100';
+  const buttonStyle = 'border-0 rounded-lg active:bg-neutral-600 hover:bg-dark3 transition-colors ease-in duration-100';
 
   return (
     <div className='grid grid-rows-2 justify-items-center items-baseline gap-y-5 my-2 sm:mb-0' hidden={hidden}>
@@ -88,8 +87,8 @@ export default function AudioPlayer({ hidden }: AudioPlayerProps) {
       </div>
 
       <div>
-        <p>Now playing: {tracks[trackIndex]}</p>
-        <audio src={`audio/${tracks[trackIndex]}.mp3`} ref={audioRef} loop />
+        <p>Now playing: {tracks[trackIndex].split('.mp3')[0]}</p>
+        <audio src={`audio/${tracks[trackIndex]}`} ref={audioRef} loop />
       </div>
     </div>
   );
